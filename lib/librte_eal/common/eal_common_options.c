@@ -406,7 +406,7 @@ eal_plugindir_init(const char *path)
 int
 eal_plugins_init(void)
 {
-#ifndef RTE-EXEC_ENV_WINDOWS
+#ifndef RTE_EXEC_ENV_WINDOWS
 	struct shared_driver *solib = NULL;
 	struct stat sb;
 
