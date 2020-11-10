@@ -435,7 +435,7 @@ eal_plugins_init(void)
 				solib->name);
 			solib->lib_handle = dlopen(solib->name,RTLD_NOW);
 			if (solib->lib_handle == NULL){
-				RTE_LOG(ERR,EAL, "%\n", dlerror());
+				RTE_LOG(ERR,EAL, "%s\n", dlerror());
 				return -1;
 			}
 		}
