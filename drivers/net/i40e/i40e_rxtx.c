@@ -55,6 +55,7 @@
 		PKT_TX_OUTER_IP_CKSUM)
 
 #define I40E_TX_OFFLOAD_MASK (  \
+		PKT_TX_NO_CRC_CSUM |    \
 		PKT_TX_OUTER_IPV4 |	\
 		PKT_TX_OUTER_IPV6 |	\
 		PKT_TX_IPV4 |		\
@@ -1102,8 +1103,9 @@ i40e_xmit_pkts(void *tx_queue, struct rte_mbuf **tx_pkts, uint16_t nb_pkts)
 			td_tag = tx_pkt->vlan_tci;
 		}
 
-		/* Always enable CRC offload insertion */
-		td_cmd |= I40E_TX_DESC_CMD_ICRC;
+		/* Enable CRC offload insertion */
+		if (!(ol_flags & PKT_TX_NO_CRC-CSUM))
+			td_cmd |= I40E_TX_DESC_CMD_ICRC;
 
 		/* Fill in tunneling parameters if necessary */
 		cd_tunneling_params = 0;

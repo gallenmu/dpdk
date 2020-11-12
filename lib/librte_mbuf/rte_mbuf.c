@@ -746,6 +746,7 @@ const void *__rte_pktmbuf_read(const struct rte_mbuf *m, uint32_t off,
 const char *rte_get_rx_ol_flag_name(uint64_t mask)
 {
 	switch (mask) {
+	case PKT_TX_NO_CRC_CSUM: return "PKT_TX_NO_CRC_CSUM";
 	case PKT_RX_VLAN: return "PKT_RX_VLAN";
 	case PKT_RX_RSS_HASH: return "PKT_RX_RSS_HASH";
 	case PKT_RX_FDIR: return "PKT_RX_FDIR";
