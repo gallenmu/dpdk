@@ -1104,7 +1104,7 @@ i40e_xmit_pkts(void *tx_queue, struct rte_mbuf **tx_pkts, uint16_t nb_pkts)
 		}
 
 		/* Enable CRC offload insertion */
-		if (!(ol_flags & PKT_TX_NO_CRC-CSUM))
+		if (!(ol_flags & PKT_TX_NO_CRC_CSUM))
 			td_cmd |= I40E_TX_DESC_CMD_ICRC;
 
 		/* Fill in tunneling parameters if necessary */
